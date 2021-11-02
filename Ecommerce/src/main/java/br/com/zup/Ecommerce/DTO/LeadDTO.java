@@ -34,7 +34,7 @@ public class LeadDTO {
         this.telefone = telefone;
     }
 
-    public String getEmail() {
+    public LeadDTO getEmail() {
         return email;
     }
 

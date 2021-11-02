@@ -1,6 +1,7 @@
 package br.com.zup.Ecommerce.Lead;
 
 import br.com.zup.Ecommerce.DTO.LeadDTO;
+import br.com.zup.Ecommerce.DTO.ProdutoDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,10 +12,10 @@ import java.util.List;
 
 @Service
 public class LeadService {
-   private List<LeadDTO> listaDeLeads = new ArrayList<>();
+    private List<LeadDTO> listaDeLeads = new ArrayList<>();
 
     public List<LeadDTO> exibirLead() {
-        return  listaDeLeads;
+        return listaDeLeads;
     }
 
 
@@ -25,10 +26,10 @@ public class LeadService {
             } else {
                 LeadDTO lead = verificarCadastro(leadDTO.getEmail());
                 listaDeLeads.add(leadDTO);
-
             }
         }
     }
+
 
     public LeadDTO verificarCadastro(LeadDTO leadDTO) {
         for (LeadDTO leadReferencia : listaDeLeads) {
@@ -38,4 +39,15 @@ public class LeadService {
         }
         throw new ResponseStatusException(HttpStatus.NOT_FOUND);
     }
+
+    public LeadDTO buscarLead(LeadDTO leadDTO) {
+        for (LeadDTO leadReferencia : listaDeLeads) {
+            if (listaDeLeads.contains(leadReferencia)) {
+                return leadReferencia;
+            }
+        }
+        throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+
+    }
+
 }
