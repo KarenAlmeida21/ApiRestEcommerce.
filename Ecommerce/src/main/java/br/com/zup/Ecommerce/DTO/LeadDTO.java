@@ -4,16 +4,16 @@ import java.util.List;
 
 public class LeadDTO {
     private String nome;
-    private String cpf;
+    private String telefone;
     private String email;
     public List<ProdutoDTO> listaDeProdutos;
 
     public LeadDTO() {
     }
 
-    public LeadDTO(String nome, String cpf, String email, List<ProdutoDTO> listaDeProdutos) {
+    public LeadDTO(String nome, String telefone, String email, List<ProdutoDTO> listaDeProdutos) {
         this.nome = nome;
-        this.cpf = cpf;
+        this.telefone = telefone;
         this.email = email;
         this.listaDeProdutos = listaDeProdutos;
     }
@@ -26,12 +26,12 @@ public class LeadDTO {
         this.nome = nome;
     }
 
-    public String getCpf() {
-        return cpf;
+    public String getTelefone() {
+        return telefone;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 
     public String getEmail() {
@@ -42,11 +42,11 @@ public class LeadDTO {
         this.email = email;
     }
 
-    public ProdutoDTO getProdutoDTO() {
-        return produtoDTO;
+    public List<ProdutoDTO> getListaDeProdutos() {
+        return listaDeProdutos;
     }
 
-    public void setProdutoDTO(ProdutoDTO produtoDTO) {
-        this.produtoDTO = produtoDTO;
+    public void setListaDeProdutos(List<ProdutoDTO> listaDeProdutos) {
+        this.listaDeProdutos = listaDeProdutos;
     }
 }
