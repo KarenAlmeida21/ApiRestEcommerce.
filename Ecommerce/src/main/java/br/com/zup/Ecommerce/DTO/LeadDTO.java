@@ -34,7 +34,7 @@ public class LeadDTO {
         this.telefone = telefone;
     }
 
-    public LeadDTO getEmail() {
+    public String getEmail() {
         return email;
     }
 
@@ -48,6 +48,10 @@ public class LeadDTO {
 
     public void setListaDeProdutos(List<ProdutoDTO> listaDeProdutos) {
         this.listaDeProdutos = listaDeProdutos;
+    }
+
+    public void adicionarProduto(ProdutoDTO produto){
+      listaDeProdutos.add(produto);
     }
 
 }

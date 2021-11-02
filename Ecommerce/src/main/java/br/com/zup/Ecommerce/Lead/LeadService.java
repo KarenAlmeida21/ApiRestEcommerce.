@@ -49,8 +49,8 @@ public class LeadService {
         throw new ResponseStatusException(HttpStatus.NOT_FOUND);
 
     }
-
-    public void verificarProduto(LeadDTO leadDTO, String nome) {
-buscarLead()
-    }
 }
+
+
+
+
