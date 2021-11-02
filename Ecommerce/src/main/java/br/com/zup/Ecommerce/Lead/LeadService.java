@@ -11,10 +11,10 @@ import java.util.List;
 
 @Service
 public class LeadService {
-    List<LeadDTO> listaDeLeads = new ArrayList<>();
+   private List<LeadDTO> listaDeLeads = new ArrayList<>();
 
-    public LeadDTO exibirLead() {
-        return (LeadDTO) listaDeLeads;
+    public List<LeadDTO> exibirLead() {
+        return  listaDeLeads;
     }
 
 
@@ -23,8 +23,19 @@ public class LeadService {
             if (listaDeLeads.equals(leadReferencia)) {
                 throw new ResponseStatusException(HttpStatus.NOT_FOUND);
             } else {
+                LeadDTO lead = verificarCadastro(leadDTO.getEmail());
                 listaDeLeads.add(leadDTO);
+
             }
         }
+    }
+
+    public LeadDTO verificarCadastro(LeadDTO leadDTO) {
+        for (LeadDTO leadReferencia : listaDeLeads) {
+            if (leadReferencia.getEmail().equals(leadDTO.getEmail())) {
+                return leadReferencia;
+            }
+        }
+        throw new ResponseStatusException(HttpStatus.NOT_FOUND);
     }
 }

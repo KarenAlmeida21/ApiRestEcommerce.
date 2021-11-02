@@ -49,4 +49,5 @@ public class LeadDTO {
     public void setListaDeProdutos(List<ProdutoDTO> listaDeProdutos) {
         this.listaDeProdutos = listaDeProdutos;
     }
+
 }
