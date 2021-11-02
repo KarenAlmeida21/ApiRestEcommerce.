@@ -1,19 +1,21 @@
 package br.com.zup.Ecommerce.DTO;
 
+import java.util.List;
+
 public class LeadDTO {
     private String nome;
     private String cpf;
     private String email;
-    public ProdutoDTO produtoDTO;
+    public List<ProdutoDTO> listaDeProdutos;
 
     public LeadDTO() {
     }
 
-    public LeadDTO(String nome, String cpf, String email, ProdutoDTO produtoDTO) {
+    public LeadDTO(String nome, String cpf, String email, List<ProdutoDTO> listaDeProdutos) {
         this.nome = nome;
         this.cpf = cpf;
         this.email = email;
-        this.produtoDTO = produtoDTO;
+        this.listaDeProdutos = listaDeProdutos;
     }
 
     public String getNome() {
