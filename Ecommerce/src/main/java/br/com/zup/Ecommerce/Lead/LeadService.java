@@ -1,4 +1,4 @@
-package br.com.zup.Ecommerce;
+package br.com.zup.Ecommerce.Lead;
 
 import br.com.zup.Ecommerce.DTO.LeadDTO;
 import org.springframework.http.HttpStatus;
