@@ -40,9 +40,9 @@ public class LeadService {
         throw new ResponseStatusException(HttpStatus.NOT_FOUND);
     }
 
-    public LeadDTO buscarLead(LeadDTO leadDTO) {
+    public LeadDTO buscarLead(String email) {
         for (LeadDTO leadReferencia : listaDeLeads) {
-            if (listaDeLeads.contains(leadReferencia)) {
+            if (leadReferencia.getEmail().equals(leadReferencia.getEmail())) {
                 return leadReferencia;
             }
         }
@@ -50,4 +50,7 @@ public class LeadService {
 
     }
 
+    public void verificarProduto(LeadDTO leadDTO, String nome) {
+buscarLead()
+    }
 }
