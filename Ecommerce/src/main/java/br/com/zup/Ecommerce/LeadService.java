@@ -12,6 +12,9 @@ import java.util.List;
 @Service
 public class LeadService {
     List<LeadDTO> listaDeLeads = new ArrayList<>();
+    public LeadDTO exibirLead(){
+        return (LeadDTO) listaDeLeads;
+    }
 
 
     public void adicionarLead(@RequestBody LeadDTO leadDTO) {
