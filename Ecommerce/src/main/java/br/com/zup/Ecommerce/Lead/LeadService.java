@@ -18,7 +18,7 @@ public class LeadService {
         return listaDeLeads;
     }
 
-boolean iguais = false;
+
     public void adicionarLead(@RequestBody LeadDTO leadDTO) {
         for (LeadDTO leadReferencia : listaDeLeads) {
             if (leadReferencia.getEmail().equals(leadDTO.getEmail())) {
