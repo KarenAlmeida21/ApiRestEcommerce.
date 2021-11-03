@@ -18,13 +18,12 @@ public class LeadService {
         return listaDeLeads;
     }
 
-
+boolean iguais = false;
     public void adicionarLead(@RequestBody LeadDTO leadDTO) {
         for (LeadDTO leadReferencia : listaDeLeads) {
-            if (listaDeLeads.equals(leadReferencia)) {
+            if (leadReferencia.getEmail().equals(leadDTO.getEmail())) {
                 throw new ResponseStatusException(HttpStatus.NOT_FOUND);
             } else {
-                LeadDTO lead = verificarCadastro(leadDTO.getEmail());
                 listaDeLeads.add(leadDTO);
             }
         }
@@ -47,9 +46,22 @@ public class LeadService {
             }
         }
         throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-
     }
+
+    public ProdutoDTO verificarProduto(LeadDTO lead, String nome) {
+        //LeadDTO leadDTO = buscarLead(lead.getEmail());
+        for (ProdutoDTO produtoReferencia : lead.getListaDeProdutos()) {
+            if (lead.getListaDeProdutos().equals(nome)) {
+                return produtoReferencia;
+            }
+
+        }
+        throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+    }
+
+
 }
+
 
 
 
