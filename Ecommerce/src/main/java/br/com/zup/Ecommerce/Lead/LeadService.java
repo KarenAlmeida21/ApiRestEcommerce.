@@ -36,7 +36,7 @@ public class LeadService {
                 return leadReferencia;
             }
         }
-        throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        throw new  RuntimeException("Não encontrado");
     }
 
     public LeadDTO buscarLead(String email) {
@@ -45,18 +45,17 @@ public class LeadService {
                 return leadReferencia;
             }
         }
-        throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        throw new RuntimeException("Não encontrado");
     }
 
     public ProdutoDTO verificarProduto(LeadDTO lead, String nome) {
-        //LeadDTO leadDTO = buscarLead(lead.getEmail());
         for (ProdutoDTO produtoReferencia : lead.getListaDeProdutos()) {
             if (lead.getListaDeProdutos().equals(nome)) {
                 return produtoReferencia;
             }
 
         }
-        throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        throw new RuntimeException("Não encontrado");
     }
 
 
