@@ -4,7 +4,7 @@ import br.com.zup.Ecommerce.DTO.LeadDTO;
 import br.com.zup.Ecommerce.DTO.ProdutoDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
+
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ public class LeadService {
     }
 
 
-    public void adicionarLead(@RequestBody LeadDTO leadDTO) {
+    public void adicionarLead( LeadDTO leadDTO) {
         for (LeadDTO leadReferencia : listaDeLeads) {
             if (leadReferencia.getEmail().equals(leadDTO.getEmail())) {
                 throw new ResponseStatusException(HttpStatus.NOT_FOUND);
@@ -28,6 +28,7 @@ public class LeadService {
             }
         }
     }
+
 
 
     public LeadDTO verificarCadastro(LeadDTO leadDTO) {
