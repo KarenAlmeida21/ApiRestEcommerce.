@@ -2,6 +2,8 @@ package br.com.zup.Ecommerce.Lead;
 
 import br.com.zup.Ecommerce.DTO.LeadDTO;
 import br.com.zup.Ecommerce.DTO.ProdutoDTO;
+import br.com.zup.Ecommerce.Repository.LeadRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
@@ -12,42 +14,25 @@ import java.util.List;
 
 @Service
 public class LeadService {
-    private List<LeadDTO> listaDeLeads = new ArrayList<>();
+
+    private LeadRepository leadRepository;
+    //private List<LeadDTO> listaDeLeads = new ArrayList<>();
 
     public List<LeadDTO> exibirLead() {
-        return listaDeLeads;
+         leadRepository = new LeadRepository();
+        return leadRepository.getListaDeleads();
     }
 
 
-    public void adicionarLead( LeadDTO leadDTO) {
-        for (LeadDTO leadReferencia : listaDeLeads) {
-            if (leadReferencia.getEmail().equals(leadDTO.getEmail())) {
-                throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-            } else {
-                listaDeLeads.add(leadDTO);
-            }
-        }
+    public LeadDTO adicionarLead( LeadDTO leadDTO) {
+      leadRepository = new LeadRepository();
+      return leadRepository.armazenarLead(leadDTO);
+
     }
 
 
 
-    public LeadDTO verificarCadastro(LeadDTO leadDTO) {
-        for (LeadDTO leadReferencia : listaDeLeads) {
-            if (leadReferencia.getEmail().equals(leadDTO.getEmail())) {
-                return leadReferencia;
-            }
-        }
-        throw new  RuntimeException("Não encontrado");
-    }
 
-    public LeadDTO buscarLead(String email) {
-        for (LeadDTO leadReferencia : listaDeLeads) {
-            if (leadReferencia.getEmail().equals(leadReferencia.getEmail())) {
-                return leadReferencia;
-            }
-        }
-        throw new RuntimeException("Não encontrado");
-    }
 
     public ProdutoDTO verificarProduto(LeadDTO lead, String nome) {
         for (ProdutoDTO produtoReferencia : lead.getListaDeProdutos()) {
@@ -58,6 +43,7 @@ public class LeadService {
         }
         throw new RuntimeException("Não encontrado");
     }
+
 
 
 }

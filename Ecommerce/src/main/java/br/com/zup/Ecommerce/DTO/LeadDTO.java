@@ -11,6 +11,12 @@ public class LeadDTO {
     public LeadDTO() {
     }
 
+    public LeadDTO(String nome, String telefone, String email) {
+        this.nome = nome;
+        this.telefone = telefone;
+        this.email = email;
+    }
+
     public LeadDTO(String nome, String telefone, String email, List<ProdutoDTO> listaDeProdutos) {
         this.nome = nome;
         this.telefone = telefone;
@@ -54,4 +60,13 @@ public class LeadDTO {
       listaDeProdutos.add(produto);
     }
 
+    @Override
+    public String toString() {
+        return "LeadDTO{" +
+                "nome='" + nome + '\'' +
+                ", telefone='" + telefone + '\'' +
+                ", email='" + email + '\'' +
+                ", listaDeProdutos=" + listaDeProdutos +
+                '}';
+    }
 }

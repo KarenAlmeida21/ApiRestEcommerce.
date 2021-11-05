@@ -3,6 +3,7 @@ package br.com.zup.Ecommerce.Lead;
 import br.com.zup.Ecommerce.DTO.LeadDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,8 +21,8 @@ public class LeadController {
     }
 
     @GetMapping
-    public List<LeadDTO>exibir(){
-        return leadService.exibirLead();
+    public ResponseEntity <List<LeadDTO>>exibir(){
+        return ResponseEntity.ok().body(leadService.exibirLead());
     }
 
 }
